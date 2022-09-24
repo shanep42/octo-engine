@@ -3,7 +3,7 @@
     background-color: crimson;
     color: white;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
 }
 
 .card {
@@ -15,7 +15,12 @@
 .card * {
     display: flex;
     flex-direction: column;
+}
 
+.card-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .card-header {

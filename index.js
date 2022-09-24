@@ -37,7 +37,7 @@ addManager = () => {
             }
         ])
         .then(answers => {
-            let manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
+            let manager = new Manager(answers.name, answers.employeeID, answers.email, answers.officeNumber);
             console.log('MANAGER ADDED: ', manager)
             team.push(manager)
             continueAdding()
@@ -61,7 +61,7 @@ continueAdding = () => {
                 addIntern();
             }
             else {
-                console.log(team)
+                writeHTML()
             }
         })
 }
@@ -94,7 +94,7 @@ addEngineer = () => {
                 default: 'shanep42'
             }])
         .then(answers => {
-            let engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
+            let engineer = new Engineer(answers.name, answers.employeeID, answers.email, answers.github);
             console.log('ENGINEER ADDED: ', engineer)
             team.push(engineer)
             continueAdding()
@@ -130,7 +130,7 @@ addIntern = () => {
             }
         ])
         .then(answers => {
-            let intern = new Intern(answers.name, answers.id, answers.email, answers.school);
+            let intern = new Intern(answers.name, answers.employeeID, answers.email, answers.school);
             console.log('INTERN ADDED: ', intern)
             team.push(intern)
             continueAdding()
@@ -138,9 +138,28 @@ addIntern = () => {
 }
 
 writeHTML = () => {
+    console.log(team)
+    var cardtemplate = fs.readFileSync('./cardtemplate.html', 'utf-8');
+    var cards = "";
+    team.forEach(employee => {
+        ({ name, id, email } = employee)
+        let role = employee.getRole()
+        if (employee.officeNumber) {
+            additionalInfo = `Office Number: ${employee.officeNumber}`
+        } else if (employee.github) {
+            let url = employee.getGithub();
+            additionalInfo = `Github: <a href='${url}' target= '_blank'>${employee.github}</a>`
+        } else {
+            additionalInfo = `School: ${employee.school}`
+        }
+
+        // const cards = fs.readFileSync('/.cardtemplate.html', 'utf-8')
+        let newCard = eval('`' + cardtemplate + '`')
+        cards += newCard;
+    });
     const template = fs.readFileSync('./template.html', "utf-8")
     let newDoc = eval("`" + template + "`")
-    fs.writeFileSync('./index.html', newDoc)
+    fs.writeFileSync('./dist/index.html', newDoc)
 }
 
-writeHTML()
+addManager();

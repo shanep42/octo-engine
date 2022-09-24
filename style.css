@@ -1,0 +1,40 @@
+#header {
+    width: 100%;
+    background-color: crimson;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
+    width: 250px;
+    height: 300px;
+    border: solid black 3px;
+}
+
+.card * {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.card-header {
+    background-color: blue;
+    font-weight: bold;
+    color: white;
+    height: 30%;
+    text-align: center;
+    justify-content: center;
+    align-items: center
+}
+
+.info-list {
+    justify-content: center;
+    align-items: center;
+    height: 70%
+}
+
+.info-box {
+    border: solid 1px rgb(211, 211, 214);
+    width: 80%;
+}

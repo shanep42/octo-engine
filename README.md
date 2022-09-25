@@ -16,8 +16,8 @@ This application requires Node, the fs and inquirer modules, as well as Jest if 
 ## Usage 
 Use inquirer from your command line to answer questions about your project.
 Video demo here - [Screencastify](https://watch.screencastify.com/v/ItXNTxYfcn9WL3cDm4qH)<br>
-<img src="./assets/image/screenshot.png">
-<img src="./assets/image/screenshot2.png">
+<img src="./assets/screenshot.png">
+<img src="./assets/screenshot2.png">
 
 ## Tests
 Run `npm test` to run Jest for tests on the various employee class constructors. 

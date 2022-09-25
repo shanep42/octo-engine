@@ -1,3 +1,8 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif
+}
+
 #header {
     width: 100%;
     background-color: crimson;
@@ -10,6 +15,7 @@
     width: 250px;
     height: 300px;
     border: solid black 3px;
+    margin-bottom: 25px;
 }
 
 .card * {
@@ -17,10 +23,12 @@
     flex-direction: column;
 }
 
-.card-area {
+#card-area {
+    margin: 100px auto;
+    justify-content: space-evenly;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .card-header {
